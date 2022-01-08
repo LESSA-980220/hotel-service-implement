@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="kor">
+<!--Korean-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hiroto Template">
+    <meta name="keywords" content="Hiroto, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Strong Gum Hotel</title>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/style.css')}}">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn__widget">
+            <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
+        </div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                <li><span class="icon_phone"></span> 031-400-1005</li>
+            </ul>
+        </div>
+        <div class="offcanvas__language">
+            <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+            <span>한국어</span>
+            <i class="fa fa-angle-down"></i>
+            <ul>
+                <li>한국어</li>
+                <li>English</li>
+            </ul>
+        </div>
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="./manager/login">관리자페이지</a></li>
+                <li><a href="reservationcheck">예약확인</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                            <li><span class="icon_phone"></span> 031-400-1005</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__auth">
+                                <ul>
+                                    <li><a href="/manager/login">관리자페이지</a></li>
+                                    <li><a href="reservationcheck">예약확인</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__language">
+                                <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+                                <span>한국어</span>
+                                <i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li><a href="index">한국어</li>
+                                    <li><a href="indexEng">English</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav__option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+                            <nav class="header__menu">
+                                <ul class="menu__class">
+                                    <li class="active"><a href="index">홈으로</a></li>
+                                    <li><a href="rooms">객실정보</a></li>
+                                    <li><a href="about">호텔잇몸 소개</a></li>
+                                    <li><a href="room-details">상세정보</a></li>
+                                    <li><a href="blog">소식</a></li>
+                                    <li><a href="contact">고객문의</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__nav__widget">
+                                <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero spad set-bg" data-setbg="{{ url_for('static', filename='customer/img/hotel-bg.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__text">
+                        <h5>잇몸호텔에 오신 것을 환영합니다.</h5>
+                        <h2>당신을 위한 최고의</h2>
+                        <h2>선택을 경험하십시오.</h2>
+                    </div>
+                    <form action="/reservation" method="post" class="filter__form">
+                        <div class="filter__form__item">
+                            <p>체크 인</p>
+                            <div class="filter__form__datepicker">
+                                <span class="icon_calendar"></span>
+                                <input type="text" class="datepicker_pop check__in" id = "date" name = "date">
+                                <i class="arrow_carrot-down"></i>
+                            </div>
+                        </div>
+                        <div class="filter__form__item">
+                            <p>체크 아웃</p>
+                            <div class="filter__form__datepicker">
+                                <span class="icon_calendar"></span>
+                                <input type="text" class="datepicker_pop check__out" id = "date1" name = "date1">
+                                <i class="arrow_carrot-down"></i>
+                            </div>
+                        </div>
+                        <div class="filter__form__item filter__form__item--select">
+                            <p>어른</p>
+                            <div class="filter__form__select">
+                                <span class="icon_group"></span>
+                                <select>
+                                    <option value="">1명</option>
+                                    <option value="">2명</option>
+                                    <option value="">3명</option>
+                                    <option value="">4명</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter__form__item filter__form__item--select">
+                            <p>어린이</p>
+                            <div class="filter__form__select">
+                                <span class="icon_group"></span>
+                                <select>
+                                    <option value="">1명</option>
+                                    <option value="">2명</option>
+                                    <option value="">3명</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit">
+                          바로 예약
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Home About Section Begin -->
+    <section class="home-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="home__about__text">
+                        <div class="section-title">
+                            <h5>ABOUT US</h5>
+                            <h2>잇몸호텔에 오신 것을 환영합니다.</h2>
+                        </div>
+                        <p class="first-para">저희 잇몸호텔은 언제나 최선의 노력을 다해 고객님들에게 최고의 경험을 제공하기위해 </p>
+                        <p class="last-para">노력할 것을 약속드립니다. 불편사항이 생기시면 언제든지 저희에게 연락주십시오.</p>
+                        <img src="{{ url_for('static', filename='customer/img/home-about/sign.jpeg') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="home__about__pic">
+                        <img src="{{ url_for('static', filename='customer/img/home-about/home.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home About Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-1.png') }}" alt="">
+                        <h4>무료 와이파이</h4>
+                        <p>호텔 어디에서든 매우 빠른 속도로 무료 와이파이를 즐겨보세요.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-2.png') }}" alt="">
+                        <h4>실내 수영장</h4>
+                        <p>실내 수영장에서 계절에 관계없이 물놀이를 즐겨보세요.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-3.png') }}" alt="">
+                        <h4>커피 메이커</h4>
+                        <p>방마다 구비되어 있는 커피 메이커를 통해 기분 좋은 하루를 맞이하세요.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-4.png') }}" alt="">
+                        <h4>와인 바</h4>
+                        <p>분위기가 필요할 때, 와인 한 잔 어떠신가요?</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-5.png') }}" alt="">
+                        <h4>UHD TV</h4>
+                        <p>UHD화질의 TV를 마음껏 이용하실 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{{ url_for('static', filename='customer/img/services/services-6.png') }}" alt="">
+                        <h4>레스토랑</h4>
+                        <p>미슐랭 3스타 출신 셰프가 제공하는 최고의 식사를 경험해 보세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Home Room Section Begin -->
+    <section class="home-room spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h5>객실</h5>
+                        <h2>호텔을 살펴보세요</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-1.jpg') }}">
+                        <div class="home__room__title">
+                            <h4>Standard Room</h4>
+                            <h2><sup>₩</sup>100,000~<span>/박</span></h2>
+                        </div>
+                        <a href="reservation">바로 예약</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-2.jpg') }}">
+                        <div class="home__room__title">
+                            <h4>Superior Room</h4>
+                            <h2><sup>₩</sup>150,000~<span>/박</span></h2>
+                        </div>
+                        <a href="reservation">바로 예약</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-3.jpg')}}">
+                        <div class="home__room__title">
+                            <h4>Deluxe Room</h4>
+                            <h2><sup>₩</sup>200,000~<span>/박</span></h2>
+                        </div>
+                        <a href="reservation">바로 예약</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                    <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-4.jpg')}}">
+                        <div class="home__room__title">
+                            <h4>Suite Room</h4>
+                            <h2><sup>₩</sup>250,000~<span>/박</span></h2>
+                        </div>
+                        <a href="reservation">바로 예약</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Room Section End -->
+
+    <!-- Testimonial Section Begin -->
+    <section class="testimonial spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="testimonial__pic">
+                        <img src="{{ url_for('static', filename='customer/img/insa.jpg')}}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="testimonial__text">
+                        <div class="section-title">
+                            <h5>고객의 소리</h5>
+                            <h2>고객님들의 이야기를 듣습니다.</h2>
+                        </div>
+                        <div class="testimonial__slider__content">
+                            <div class="testimonial__slider owl-carousel">
+                                <div class="testimonial__item">
+                                    <h5>이용 후기:</h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>접근성이 일단 괜찮아서 마음에 들었습니다. 처음에 객실에 들어갔을 때, 방이 너무 깔끔하고 아늑해보여서
+                                       더 마음에 들었던 것 같아요!! 아낌없이 별점 10점 주겠습니다.</p>
+                                    <div class="testimonial__author">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__title">
+                                                    <h5>손흥민</h5>
+                                                    <span>2020-11-28 ~ 2020-11-30</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__social">
+                                                    <a href="https://ko-kr.facebook.com/HeungMinSonOfficial"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="https://www.instagram.com/hm_son7/?hl=ko"><i class="fa fa-instagram"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial__item">
+                                    <h5>이용 후기:</h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>오랜만에 가족들과 여행왔는데 정말 푹 쉬다 갑니다. 멀리 나가지 않아도 될만큼 가까이에 바다가 있고
+                                      창문으로 보이는 오션뷰가 또 좋네요. 모든 면에서 만족합니다^^</p>
+                                    <div class="testimonial__author">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__title">
+                                                    <h5>리오넬 메시</h5>
+                                                    <span>2020-11-29 ~ 2020-12-02</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-instgram"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial__item">
+                                    <h5>이용 후기:</h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <p>전체적으로 괜찮았습니다. 하지만 복도 앞에 쓰레기가 몇번 보여서 이 점이 조금 아쉬웠습니다. 그 외에는 나머지가 다 괜찮았어요!</p>
+                                    <div class="testimonial__author">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__title">
+                                                    <h5>페이커</h5>
+                                                    <span>2020-12-01 ~ 2020-12-04</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial__item">
+                                    <h5>이용 후기:</h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>매년 이 호텔로 휴식을 취하러 옵니다. 항상 그럴 때마다 좋은 경험을 갖고 돌아가게 해줘서 정말 고맙게 생각합니다.
+                                       올해도 역시 최고의 서비스를 저에게 제공해 주었으며, 내년에도 큰 기대감을 가지고 이 호텔을 찾아올 수 있을 것이라는
+                                       믿음을 가지게 되었습니다. 이 모습 그대로 유지되었으면 좋겠습니다.</p>
+                                    <div class="testimonial__author">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__title">
+                                                    <h5>버락 오바마</h5>
+                                                    <span>2020-11-30 ~ 2020-12-07</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__social">
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-num" id="snh-1"></div>
+                            <div class="slider__progress"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section End -->
+
+    <!-- Gallery Section Begin -->
+    <section class="gallery spad">
+        <div class="gallery__text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="section-title">
+                            <h5>호텔 사진들</h5>
+                            <h3>호텔에서 찍은 사진들을 구경해보세요!</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="gallery__title">
+                            <p>호텔에서 찍은 사진은 여러분 인생에서 가장 추억에 남는 사진 중 하나일 것입니다.
+                            잇몸호텔은 여러분에게 최고의 기억을 선사할 것을 약속드립니다.</p>
+                            <a href="blog" class="primary-btn">갤러리 보러가기<span class="arrow_right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery__slider owl-carousel">
+            <div class="gallery__item small__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-1.jpg')}}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-2.jpg')}}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-3.jpg')}}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-4.jpg')}}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-5.jpg')}}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-6.jpg')}}"></div>
+        </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <!-- Latest Blog Section Begin -->
+    <section class="latest-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h5>고객 후기</h5>
+                        <h2>인스타그램으로 이벤트에 응모하세요!</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 p-0 order-lg-1 col-md-6 order-md-1">
+                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-1.jpg')}}"></div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-2 col-md-6 order-md-2">
+                    <div class="latest__blog__text">
+                        <div class="label">호텔</div>
+                        <h5>올해 초에 눈사람 만들었는데ㅠ 또 가고 싶다...</h5>
+                        <p><i class="fa fa-clock-o"></i> 11st January, 2020</p>
+                        <a href="#">더 읽기</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-3 col-md-6 order-md-4">
+                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-2.jpg')}}"></div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-4 col-md-6 order-md-3">
+                    <div class="latest__blog__text">
+                        <div class="label">객실</div>
+                        <h5>객실이 정말 깨끗해서 좋았어요!!</h5>
+                        <p><i class="fa fa-clock-o"></i> 29th November, 2020</p>
+                        <a href="#">더 읽기</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-6 col-md-6 order-md-5">
+                    <div class="latest__blog__pic latest__blog__pic__last__row set-bg"
+                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-3.jpg')}}"></div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-5 col-md-6 order-md-6">
+                    <div class="latest__blog__text">
+                        <div class="label">여행</div>
+                        <h5>바로 앞에 바다에 갔는데 어떻게 찍어도 인생샷 ㄷㄷ</h5>
+                        <p><i class="fa fa-clock-o"></i> 2nd December, 2020</p>
+                        <a href="#">더 읽기</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-8 col-md-6 order-md-8">
+                    <div class="latest__blog__pic latest__blog__pic__last__row set-bg"
+                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-4.jpg')}}"></div>
+                </div>
+                <div class="col-lg-3 p-0 order-lg-7 col-md-6 order-md-7">
+                    <div class="latest__blog__text">
+                        <div class="label">예약</div>
+                        <h5>예약은 정말 빠르고 쉽게 이루어졌습니다.</h5>
+                        <p><i class="fa fa-clock-o"></i> 5th December, 2020</p>
+                        <a href="#">더 읽기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Blog Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo__carousel owl-carousel">
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-1.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-2.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-3.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-4.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-5.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
+                            </div>
+                            <h4>031-400-1005</h4>
+                            <ul>
+                                <li>경기도 안산시 상록구 한양대학로 55</li>
+                                <li>Itmomhotel@gamil.com</li>
+                            </ul>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
+                        <div class="footer__widget">
+                            <h4>빠른메뉴</h4>
+                            <ul>
+                                <li><a href="index">홈으로</a></li>
+                                <li><a href="reservation">예약</a></li>
+                                <li><a href="about">호텔잇몸 소개</a></li>
+                                <li><a href="#">고객후기</a></li>
+                                <li><a href="contact">연락처</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">서비스</a></li>
+                                <li><a href="room">객실</a></li>
+                                <li><a href="#">식당</a></li>
+                                <li><a href="#">예약확인</a></li>
+                                <li><a href="#">이벤트</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="footer__newslatter">
+                            <h4>잇몸호텔 소식을 구독하세요!</h4>
+                            <form action="#">
+                                <input type="text" placeholder="이메일 주소를 입력해주세요">
+                                <button type="submit">구독</button>
+                            </form>
+                            <div class="footer__newslatter__find">
+                                <h5>Link:</h5>
+                                <div class="footer__newslatter__find__links">
+                                    <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                    <a href="#"><i class="fa fa-map-o"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-forumbee"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Itmomhotel</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                        <ul class="footer__copyright__links">
+                            <li><a href="#">Terms Of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins <--></-->
+    <script src="{{ url_for('static', filename='customer/js/jquery-3.3.1.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/bootstrap.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.nice-select.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery-ui.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.slicknav.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/owl.carousel.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/main.js') }}" > </script>
+    <script type="text/javascript">
+    $(function () {
+        $("#sum").datepicker({
+            onSelect:function(d){
+            var arr=d.split("/");
+            var year=arr[0];
+            var month=arr[1];
+            var day=arr[2];
+            var sum=arr[0]+arr[1]+arr[2];
+
+            var date=new Date($("#date").datepicker({dateFormat:"yy/mm/dd"}).val());
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+$(function () {
+    $("#date1").datepicker({
+        onSelect:function(d){
+        var arr=d.split("/");
+        var year=arr[0];
+        var month=arr[1];
+        var day=arr[2];
+        var sum=arr[0]+arr[1]+arr[2];
+
+        var date=new Date($("#date1").datepicker({dateFormat:"yy/mm/dd"}).val());
+    }
+});
+
+});
+</script>
+</body>
+
+</html>
